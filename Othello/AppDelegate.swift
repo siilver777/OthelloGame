@@ -14,44 +14,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Interface
 
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var window2: NSWindow!
-    
-    @IBOutlet weak var boardMatrix: NSMatrix!
-    @IBOutlet weak var blackScoreField: NSTextField!
-    @IBOutlet weak var whiteScoreField: NSTextField!
-    @IBOutlet weak var passButton: NSButton!
-    @IBOutlet weak var waitSpinner: NSProgressIndicator!
-    @IBOutlet weak var newGameMenuItem: NSMenuItem!
-    @IBOutlet weak var messageField: NSTextField!
-    @IBOutlet weak var playersMenu: NSMenu!
-    @IBOutlet weak var difficultyMenu: NSMenu!
     
     var gameViewController: GameViewController!
-    
-    // MARK: - Constantes
-    
-    let default_player = 1
-    let default_diff = 2
-    
-    // Variables
-    
-    /*var currentBoard: Board?
-    var currentPlayer: Int!
-    var blackScore: Int?
-    var whiteScore: Int?
-    var blackStrategy: Strategy?
-    var whiteStrategy: Strategy?
-    var aiOpQueue: NSOperationQueue?
-    var players: Int?
-    var difficulty: Int?*/
 
     // MARK: - NSApplicationDelegate
     
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         gameViewController = GameViewController(nibName: "GameViewController", bundle: nil)
-        window2.contentView?.addSubview(gameViewController.view)
-        gameViewController.view.frame = window2.contentView!.bounds
+        window.contentView?.addSubview(gameViewController.view)
+        gameViewController.view.frame = window.contentView!.bounds
     }
 
 
@@ -61,75 +33,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override func awakeFromNib() {
         NSApp.delegate = self
-        //self.players = default_player
-        //self.difficulty = default_diff
     }
     /*
-    @IBAction func matrixButtonClicked(sender: AnyObject) {
-        let row = sender.selectedRow
-        let col = sender.selectedColumn
-        
-        //let coord = Coord(row: row+1, column: col+1)
-        //self.move(coord)
-    }
-    
-    @IBAction func passButtonClicked(sender: AnyObject) {
-        self.pass()
-    }
-    
-    @IBAction func newGame(sender: AnyObject) {
-        self.newGame()
-    }
-    
+     
     @IBAction func difficultyMenuItemClicked(sender: AnyObject) {
         difficulty = sender.tag()
         
         self.updateOptionMenus()
         self.newGame()
     }
-    
-    @IBAction func playersMenuItemClicked(sender: AnyObject) {
-        players = sender.tag()
-        
-        self.updateOptionMenus()
-        self.newGame()
-    }
-    
-    @IBAction func helpClicked(sender: AnyObject) {
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: "http://en.wikipedia.org/wiki/Reversi")!)
-    }
-    
-    func updateOptionMenus() {
-        let playerItems = playersMenu.itemArray
-        
-        for item in playerItems {
-            item.state = (item.tag == players) ? NSOnState : NSOffState
-        }
-        
-        let diffItems = difficultyMenu.itemArray
-        
-        for item in diffItems {
-            item.state = (item.tag == difficulty) ? NSOnState : NSOffState
-        }
-    }
-    
-    func setMenuItemsEnabled(state: Bool) {
-        newGameMenuItem.enabled = state
-        
-        let playerItems = playersMenu.itemArray
-        
-        for item in playerItems {
-            item.enabled = state
-        }
-        
-        let diffItems = difficultyMenu.itemArray
-        
-        for item in diffItems {
-            item.enabled = state
-        }
-        
-    }
-    
+
     func updateGUI() {
         blackScore  = 0
         whiteScore = 0
