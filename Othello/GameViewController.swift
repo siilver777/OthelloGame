@@ -126,15 +126,15 @@ class GameViewController: NSViewController {
             // Fin du jeu, on détermine le gagnant
             if scoreNoirTextField.intValue == scoreBlancTextField.intValue {
                 // Egalité
-                print("Egalite")
+                self.messageTextField.stringValue = "Terminé ! C'est une égalité."
             }
             else if (scoreNoirTextField.intValue > scoreBlancTextField.intValue) {
                 // Noir gagne
-                print("Noir")
+                self.messageTextField.stringValue = "Terminé ! Victoire des Noirs."
             }
             else {
                 // Blanc gagne
-                print("blanc")
+                self.messageTextField.stringValue = "Terminé ! Victoire des Blancs."
             }
             
             // Remise en place des boutons, etc ……
@@ -143,7 +143,10 @@ class GameViewController: NSViewController {
         else {
             if joueurActuel == BLANC {
                 // L'IA est en train de jouer
-                print("L'IA est en train de jouer")
+                self.messageTextField.stringValue = "L'IA est en train de jouer"
+                if mouvementsBlanc.isEmpty {
+                    self.passer()
+                }
                 
                 queue?.addOperation(NSBlockOperation {
                     self.difficulte?.calculMouvement(self.plateau)
@@ -151,7 +154,10 @@ class GameViewController: NSViewController {
             }
             else {
                 // À vous de jouer
-                print("À vous de jouer")
+                self.messageTextField.stringValue = "À vous de jouer"
+                if mouvementsNoir.isEmpty {
+                    self.passer()
+                }
             }
         }
     }

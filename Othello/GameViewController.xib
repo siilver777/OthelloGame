@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GameViewController" customModule="Othello" customModuleProvider="target">
             <connections>
+                <outlet property="messageTextField" destination="4Ac-AK-CJe" id="XAn-iY-u8l"/>
                 <outlet property="plateauMatrix" destination="pMl-Wv-HFt" id="d4Y-ep-oSv"/>
                 <outlet property="scoreBlancTextField" destination="xZc-g5-bhv" id="RQU-TW-fLm"/>
                 <outlet property="scoreNoirTextField" destination="AVY-Iu-4f2" id="Dm2-AA-Fzz"/>
@@ -59,6 +60,9 @@
                         <string key="keyEquivalent">p</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="passerTour:" target="-2" id="TAT-cT-a5s"/>
+                    </connections>
                 </button>
                 <matrix verticalHuggingPriority="750" mode="highlight" drawsBackground="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMl-Wv-HFt">
                     <rect key="frame" x="20" y="90" width="640" height="640"/>
@@ -386,6 +390,9 @@
                         <string key="keyEquivalent">a</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="abandon:" target="-2" id="7jK-iM-m0M"/>
+                    </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-gS-M9o" userLabel="Difficulté">
                     <rect key="frame" x="303" y="17" width="74" height="26"/>
@@ -457,6 +464,5 @@
             </constraints>
             <point key="canvasLocation" x="353" y="396.5"/>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="loy-7f-C0O"/>
     </objects>
 </document>
