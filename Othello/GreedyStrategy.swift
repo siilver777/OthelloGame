@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GreedyStrategy: WeightedStrategy {
+/*class GreedyStrategy: WeightedStrategy {
     override func computeNextMoveForBoard(board: Board) {
         NSThread .sleepForTimeInterval(START_SLEEP_TIME)
         
@@ -35,4 +35,4 @@ class GreedyStrategy: WeightedStrategy {
             self.sendMove(bestMove!)
         }
     }
-}
+}*/

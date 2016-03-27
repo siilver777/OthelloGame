@@ -10,7 +10,7 @@ import Foundation
 
 let AB_PLIES = 2
 
-class AlphaBetaStrategy: WeightedStrategy {
+/*class AlphaBetaStrategy: WeightedStrategy {
     override func computeNextMoveForBoard(board: Board) {
         let date = NSDate()
         
@@ -75,4 +75,4 @@ class AlphaBetaStrategy: WeightedStrategy {
             return A
         }
     }
-}
+} */

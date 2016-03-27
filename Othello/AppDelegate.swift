@@ -14,6 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Interface
 
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var window2: NSWindow!
+    
     @IBOutlet weak var boardMatrix: NSMatrix!
     @IBOutlet weak var blackScoreField: NSTextField!
     @IBOutlet weak var whiteScoreField: NSTextField!
@@ -24,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var playersMenu: NSMenu!
     @IBOutlet weak var difficultyMenu: NSMenu!
     
+    var gameViewController: GameViewController!
+    
     // MARK: - Constantes
     
     let default_player = 1
@@ -31,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // Variables
     
-    var currentBoard: Board?
+    /*var currentBoard: Board?
     var currentPlayer: Int!
     var blackScore: Int?
     var whiteScore: Int?
@@ -39,10 +43,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var whiteStrategy: Strategy?
     var aiOpQueue: NSOperationQueue?
     var players: Int?
-    var difficulty: Int?
-
+    var difficulty: Int?*/
 
     // MARK: - NSApplicationDelegate
+    
+    
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
+        gameViewController = GameViewController(nibName: "GameViewController", bundle: nil)
+        window2.contentView?.addSubview(gameViewController.view)
+        gameViewController.view.frame = window2.contentView!.bounds
+    }
+
 
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
         return true
@@ -50,16 +61,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override func awakeFromNib() {
         NSApp.delegate = self
-        self.players = default_player
-        self.difficulty = default_diff
+        //self.players = default_player
+        //self.difficulty = default_diff
     }
-    
+    /*
     @IBAction func matrixButtonClicked(sender: AnyObject) {
         let row = sender.selectedRow
         let col = sender.selectedColumn
         
-        let coord = Coord(row: row+1, column: col+1)
-        self.move(coord)
+        //let coord = Coord(row: row+1, column: col+1)
+        //self.move(coord)
     }
     
     @IBAction func passButtonClicked(sender: AnyObject) {
@@ -240,7 +251,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (currentBoard != nil) {
             currentBoard!.reset()
         } else {
-            currentBoard = Board()
+           // currentBoard = Board()
         }
         
         self.getNextMove()
@@ -248,14 +259,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func nextPlayer() {
-        self.currentPlayer = -1*self.currentPlayer
+        self.currentPlayer = -1 * self.currentPlayer
     }
     
-    func move(coord: Coord) {
+    /*func move(coord: Coord) {
         currentBoard!.makeMoveForPlayer(currentPlayer!, row: coord.row, column: coord.column)
         self.nextPlayer()
         self.getNextMove()
-    }
+    }*/
     
     func pass() {
         self.nextPlayer()
@@ -266,6 +277,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func currentPlayerUsingAI() -> Bool {
         return (currentPlayer == BLACK && blackStrategy != nil) || (currentPlayer == WHITE && whiteStrategy != nil)
-    }
+    }*/
 
 }

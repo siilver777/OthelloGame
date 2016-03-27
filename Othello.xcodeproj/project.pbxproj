@@ -7,20 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D709996B1CA7076B00AB9D4D /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D709996A1CA7076B00AB9D4D /* GameViewController.xib */; };
+		D7462D591CA711CC00E4293C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7462D581CA711CC00E4293C /* GameViewController.swift */; };
+		D7462D5B1CA7332D00E4293C /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7462D5A1CA7332D00E4293C /* Constantes.swift */; };
 		D7B263061C9EF0C200C24114 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263051C9EF0C200C24114 /* AppDelegate.swift */; };
 		D7B263081C9EF0C200C24114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B263071C9EF0C200C24114 /* Assets.xcassets */; };
 		D7B2630B1C9EF0C200C24114 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B263091C9EF0C200C24114 /* MainMenu.xib */; };
 		D7B263161C9EF0C200C24114 /* OthelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263151C9EF0C200C24114 /* OthelloTests.swift */; };
-		D7B263211C9F0AD700C24114 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263201C9F0AD700C24114 /* Board.swift */; };
-		D7B263231C9F116200C24114 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263221C9F116200C24114 /* Coord.swift */; };
-		D7B263251C9F128300C24114 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263241C9F128300C24114 /* Strategy.swift */; };
-		D7B263271C9F155200C24114 /* RandomStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263261C9F155200C24114 /* RandomStrategy.swift */; };
+		D7B263211C9F0AD700C24114 /* Plateau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263201C9F0AD700C24114 /* Plateau.swift */; };
+		D7B263231C9F116200C24114 /* Coordonnees.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263221C9F116200C24114 /* Coordonnees.swift */; };
+		D7B263251C9F128300C24114 /* Strategie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263241C9F128300C24114 /* Strategie.swift */; };
+		D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263261C9F155200C24114 /* Aleatoire.swift */; };
 		D7B263291C9F164900C24114 /* GreedyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263281C9F164900C24114 /* GreedyStrategy.swift */; };
 		D7B2632B1C9F180400C24114 /* AlphaBetaStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */; };
 		D7B2632D1C9F1A7500C24114 /* AlphaBetaMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */; };
 		D7B2632F1C9F1AA200C24114 /* WeightedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */; };
-		D7B263321C9F27CF00C24114 /* blackpiece.png in Resources */ = {isa = PBXBuildFile; fileRef = D7B263301C9F27CF00C24114 /* blackpiece.png */; };
-		D7B263331C9F27CF00C24114 /* whitepiece.png in Resources */ = {isa = PBXBuildFile; fileRef = D7B263311C9F27CF00C24114 /* whitepiece.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D709996A1CA7076B00AB9D4D /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		D7462D581CA711CC00E4293C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D7462D5A1CA7332D00E4293C /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		D7B263021C9EF0C200C24114 /* Othello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Othello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B263051C9EF0C200C24114 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B263071C9EF0C200C24114 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,16 +46,14 @@
 		D7B263111C9EF0C200C24114 /* OthelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OthelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B263151C9EF0C200C24114 /* OthelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloTests.swift; sourceTree = "<group>"; };
 		D7B263171C9EF0C200C24114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7B263201C9F0AD700C24114 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		D7B263221C9F116200C24114 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
-		D7B263241C9F128300C24114 /* Strategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
-		D7B263261C9F155200C24114 /* RandomStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomStrategy.swift; sourceTree = "<group>"; };
+		D7B263201C9F0AD700C24114 /* Plateau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plateau.swift; sourceTree = "<group>"; };
+		D7B263221C9F116200C24114 /* Coordonnees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordonnees.swift; sourceTree = "<group>"; };
+		D7B263241C9F128300C24114 /* Strategie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategie.swift; sourceTree = "<group>"; };
+		D7B263261C9F155200C24114 /* Aleatoire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aleatoire.swift; sourceTree = "<group>"; };
 		D7B263281C9F164900C24114 /* GreedyStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreedyStrategy.swift; sourceTree = "<group>"; };
 		D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBetaStrategy.swift; sourceTree = "<group>"; };
 		D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBetaMove.swift; sourceTree = "<group>"; };
 		D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedStrategy.swift; sourceTree = "<group>"; };
-		D7B263301C9F27CF00C24114 /* blackpiece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackpiece.png; sourceTree = "<group>"; };
-		D7B263311C9F27CF00C24114 /* whitepiece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitepiece.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,19 +96,20 @@
 			isa = PBXGroup;
 			children = (
 				D7B263051C9EF0C200C24114 /* AppDelegate.swift */,
-				D7B263261C9F155200C24114 /* RandomStrategy.swift */,
+				D7B263261C9F155200C24114 /* Aleatoire.swift */,
 				D7B263281C9F164900C24114 /* GreedyStrategy.swift */,
 				D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */,
 				D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */,
 				D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */,
-				D7B263201C9F0AD700C24114 /* Board.swift */,
-				D7B263221C9F116200C24114 /* Coord.swift */,
-				D7B263241C9F128300C24114 /* Strategy.swift */,
+				D7B263201C9F0AD700C24114 /* Plateau.swift */,
+				D7462D5A1CA7332D00E4293C /* Constantes.swift */,
+				D7B263221C9F116200C24114 /* Coordonnees.swift */,
+				D7B263241C9F128300C24114 /* Strategie.swift */,
 				D7B263071C9EF0C200C24114 /* Assets.xcassets */,
 				D7B263091C9EF0C200C24114 /* MainMenu.xib */,
-				D7B263301C9F27CF00C24114 /* blackpiece.png */,
-				D7B263311C9F27CF00C24114 /* whitepiece.png */,
 				D7B2630C1C9EF0C200C24114 /* Info.plist */,
+				D709996A1CA7076B00AB9D4D /* GameViewController.xib */,
+				D7462D581CA711CC00E4293C /* GameViewController.swift */,
 			);
 			path = Othello;
 			sourceTree = "<group>";
@@ -201,9 +204,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B263331C9F27CF00C24114 /* whitepiece.png in Resources */,
+				D709996B1CA7076B00AB9D4D /* GameViewController.xib in Resources */,
 				D7B263081C9EF0C200C24114 /* Assets.xcassets in Resources */,
-				D7B263321C9F27CF00C24114 /* blackpiece.png in Resources */,
 				D7B2630B1C9EF0C200C24114 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,10 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B263251C9F128300C24114 /* Strategy.swift in Sources */,
-				D7B263231C9F116200C24114 /* Coord.swift in Sources */,
-				D7B263211C9F0AD700C24114 /* Board.swift in Sources */,
-				D7B263271C9F155200C24114 /* RandomStrategy.swift in Sources */,
+				D7B263251C9F128300C24114 /* Strategie.swift in Sources */,
+				D7462D5B1CA7332D00E4293C /* Constantes.swift in Sources */,
+				D7462D591CA711CC00E4293C /* GameViewController.swift in Sources */,
+				D7B263231C9F116200C24114 /* Coordonnees.swift in Sources */,
+				D7B263211C9F0AD700C24114 /* Plateau.swift in Sources */,
+				D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */,
 				D7B2632B1C9F180400C24114 /* AlphaBetaStrategy.swift in Sources */,
 				D7B263291C9F164900C24114 /* GreedyStrategy.swift in Sources */,
 				D7B263061C9EF0C200C24114 /* AppDelegate.swift in Sources */,
@@ -413,6 +417,7 @@
 				D7B2631C1C9EF0C200C24114 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7B2631D1C9EF0C200C24114 /* Build configuration list for PBXNativeTarget "OthelloTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				D7B2631F1C9EF0C200C24114 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

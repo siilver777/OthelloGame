@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AlphaBetaMove {
+/*class AlphaBetaMove {
     let move: Coord
     let score: Int
     
@@ -16,4 +16,4 @@ class AlphaBetaMove {
         self.move = move
         self.score = score
     }
-}
+}*/
