@@ -8,8 +8,6 @@
 
 import Foundation
 
-let AB_PLIES = 2
-
 class AlphaBeta: Poids {
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
@@ -27,7 +25,7 @@ class AlphaBeta: Poids {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 2, A: Int(UInt8.min), B: Int(UInt8.max))
+                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 5, A: Int(UInt8.min), B: Int(UInt8.max))
                 
                 if meilleurMouvement == nil || valeur > meilleureValeur {
                     meilleurMouvement = mouvement
@@ -69,70 +67,3 @@ class AlphaBeta: Poids {
         return (joueur != BLANC) ? b : a
     }
 }
-
-/*class AlphaBetaStrategy: WeightedStrategy {
-    override func computeNextMoveForBoard(board: Board) {
-        let date = NSDate()
-        
-        var legalMoves = board.legalMovesForPlayer(player)
-        
-        if legalMoves.count == 0 {
-            self.sleepIfTooFast(date)
-            self.sendPass()
-        } else {
-            var bestMove: Coord?
-            var bestVal: Int?
-            
-            for i in 0..<legalMoves.count {
-                let m = legalMoves[i]
-                let mBoard = self.newBoardFromBoard(board, move: m, player: player)
-                
-                let v = self.minimaxAB(mBoard, player: player, depth: AB_PLIES, A: Int(UInt8.min), B: Int(UInt8.max))
-                
-                if (bestMove == nil || v > bestVal) {
-                    bestMove = m
-                    bestVal = v
-                }
-            }
-            
-            self.sleepIfTooFast(date)
-            self.sendMove(bestMove!)
-        }
-    }
-    
-    func minimaxAB(board: Board, player: Int, depth: Int, var A: Int, var B: Int) -> Int {
-        let legalMoves = board.legalMovesForPlayer(player)
-        
-        if depth == 0 || legalMoves.count == 0 {
-            return self.utilityWithCornerAdjustment(board, player: player, negation: true)
-        }
-        
-        if player != self.player {
-            for i in 0..<legalMoves.count {
-                let m = legalMoves[i]
-                let mBoard = self.newBoardFromBoard(board, move: m, player: player)
-                
-                let v = self.minimaxAB(mBoard, player: -player, depth: depth-1, A: A, B: B)
-                
-                if (v < B) {
-                    B = v
-                }
-            }
-            
-            return B
-        } else {
-            for i in 0..<legalMoves.count {
-                let m = legalMoves[i]
-                let mBoard = self.newBoardFromBoard(board, move: m, player: player)
-                
-                let v = self.minimaxAB(mBoard, player: -player, depth: depth-1, A: A, B: B)
-                
-                if (v > A) {
-                    A = v
-                }
-            }
-            
-            return A
-        }
-    }
-} */

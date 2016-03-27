@@ -14,7 +14,7 @@ class GameViewController: NSViewController {
     @IBOutlet weak var scoreBlancTextField: NSTextField!
     @IBOutlet weak var plateauMatrix: NSMatrix!
     @IBOutlet weak var messageTextField: NSTextField!
-    
+    @IBOutlet weak var difficultePopUpButton: NSPopUpButton!
     
     var plateau: Plateau!
     var joueurActuel: Int!
@@ -24,6 +24,13 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Ajout des difficultés au menu
+        difficultePopUpButton.addItemsWithTitles(["Facile", "Moyen"])
+        
+        // Difficulté par défaut (facile)
+        self.difficulte = Aleatoire(controller: self)
+        
+        // Lancer une nouvelle partie
         self.nouvellePartie()
     }
     
@@ -32,12 +39,19 @@ class GameViewController: NSViewController {
         self.mouvement(mouvement)
     }
     
-    @IBAction func abandon(sender: AnyObject) {
+    @IBAction func recommencer(sender: AnyObject) {
         self.nouvellePartie()
     }
     
-    @IBAction func passerTour(sender: AnyObject) {
-        self.passer()
+    @IBAction func changerDifficulte(sender: AnyObject) {
+        switch difficultePopUpButton.indexOfSelectedItem {
+        case 1:
+            self.difficulte = AlphaBeta(controller: self)
+        default:
+            self.difficulte = Aleatoire(controller: self)
+        }
+        
+        self.nouvellePartie()
     }
     
     func afficherPlateau() {
@@ -80,16 +94,12 @@ class GameViewController: NSViewController {
         // Le joueur commence
         joueurActuel = NOIR
         
-        /* Lignes démarrant l'IA à ajouter */
-        
         if (queue != nil) {
             queue?.cancelAllOperations()
         }
         else {
             queue = NSOperationQueue()
         }
-        
-        self.difficulte = AlphaBeta(controller: self)
         
         if self.plateau != nil {
             self.plateau.reset()
@@ -149,7 +159,7 @@ class GameViewController: NSViewController {
                 }
                 
                 queue?.addOperation(NSBlockOperation {
-                    self.difficulte?.calculMouvement(self.plateau)
+                    self.difficulte!.calculMouvement(self.plateau)
                     })
             }
             else {

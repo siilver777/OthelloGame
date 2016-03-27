@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GameViewController" customModule="Othello" customModuleProvider="target">
             <connections>
+                <outlet property="difficultePopUpButton" destination="uX0-Ko-7pI" id="2hI-y4-G4U"/>
                 <outlet property="messageTextField" destination="4Ac-AK-CJe" id="XAn-iY-u8l"/>
                 <outlet property="plateauMatrix" destination="pMl-Wv-HFt" id="d4Y-ep-oSv"/>
                 <outlet property="scoreBlancTextField" destination="xZc-g5-bhv" id="RQU-TW-fLm"/>
@@ -52,18 +53,69 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o2z-gQ-4Op">
-                    <rect key="frame" x="14" y="13" width="147" height="32"/>
-                    <buttonCell key="cell" type="push" title="Passer son tour" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nX5-6m-cn4">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QJe-Je-c7x">
+                    <rect key="frame" x="18" y="881" width="644" height="24"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Othello" id="igc-yi-5FH">
+                        <font key="font" metaFont="system" size="20"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JSh-G4-HEF">
+                    <rect key="frame" x="18" y="856" width="644" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Jeu réalisé par Jason Pierna et Kévin Le" id="TMV-SZ-qkR">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NZ8-bd-u4A">
+                    <rect key="frame" x="18" y="835" width="644" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Dans le cadre du projet d'Intelligence Artificielle" id="o6s-l5-1pr">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-G6-M6A">
+                    <rect key="frame" x="18" y="814" width="644" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2015-2016" id="J8h-tN-tTD">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-Bp-pdA">
+                    <rect key="frame" x="527" y="13" width="139" height="32"/>
+                    <buttonCell key="cell" type="push" title="Recommencer" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sBb-1s-93N">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system" size="15"/>
-                        <string key="keyEquivalent">p</string>
+                        <string key="keyEquivalent">a</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                     <connections>
-                        <action selector="passerTour:" target="-2" id="TAT-cT-a5s"/>
+                        <action selector="recommencer:" target="-2" id="auz-e1-Ihp"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-AK-CJe">
+                    <rect key="frame" x="18" y="56" width="644" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Message" id="vim-HS-dQm">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-Ko-7pI">
+                    <rect key="frame" x="18" y="17" width="37" height="26"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VkT-pW-Oy8">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="9Sm-eN-Rdi"/>
+                        <connections>
+                            <action selector="changerDifficulte:" target="-2" id="h3K-mE-t1K"/>
+                        </connections>
+                    </popUpButtonCell>
+                </popUpButton>
                 <matrix verticalHuggingPriority="750" mode="highlight" drawsBackground="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMl-Wv-HFt">
                     <rect key="frame" x="20" y="90" width="640" height="640"/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -350,74 +402,6 @@
                         <action selector="caseSelectionnee:" target="-2" id="UmS-iR-daH"/>
                     </connections>
                 </matrix>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QJe-Je-c7x">
-                    <rect key="frame" x="18" y="881" width="644" height="24"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Othello" id="igc-yi-5FH">
-                        <font key="font" metaFont="system" size="20"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JSh-G4-HEF">
-                    <rect key="frame" x="18" y="856" width="644" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Jeu réalisé par Jason Pierna et Kévin Le" id="TMV-SZ-qkR">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NZ8-bd-u4A">
-                    <rect key="frame" x="18" y="835" width="644" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Dans le cadre du projet d'Intelligence Artificielle" id="o6s-l5-1pr">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-G6-M6A">
-                    <rect key="frame" x="18" y="814" width="644" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2015-2016" id="J8h-tN-tTD">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-Bp-pdA">
-                    <rect key="frame" x="542" y="13" width="124" height="32"/>
-                    <buttonCell key="cell" type="push" title="Abandonner" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sBb-1s-93N">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system" size="15"/>
-                        <string key="keyEquivalent">a</string>
-                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="abandon:" target="-2" id="7jK-iM-m0M"/>
-                    </connections>
-                </button>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-gS-M9o" userLabel="Difficulté">
-                    <rect key="frame" x="303" y="17" width="74" height="26"/>
-                    <popUpButtonCell key="cell" type="push" title="Facile" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="nqL-xG-tkf">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" title="Difficulté" id="h35-5v-g1m">
-                            <items>
-                                <menuItem title="Facile" state="on" hidden="YES" id="brH-IN-o4R"/>
-                                <menuItem title="Moyen" id="gpZ-7l-H30"/>
-                                <menuItem title="Difficile" id="MOg-la-Isl">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                </popUpButton>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-AK-CJe">
-                    <rect key="frame" x="18" y="56" width="644" height="19"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Message" id="vim-HS-dQm">
-                        <font key="font" metaFont="system" size="15"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="JSh-G4-HEF" firstAttribute="top" secondItem="QJe-Je-c7x" secondAttribute="bottom" constant="8" id="0ei-RJ-GO9"/>
@@ -427,14 +411,11 @@
                 <constraint firstAttribute="bottom" secondItem="Gmk-Bp-pdA" secondAttribute="bottom" constant="20" id="CHc-BD-whz"/>
                 <constraint firstItem="NZ8-bd-u4A" firstAttribute="top" secondItem="JSh-G4-HEF" secondAttribute="bottom" constant="4" id="GK4-E8-xz4"/>
                 <constraint firstItem="pMl-Wv-HFt" firstAttribute="top" secondItem="xZc-g5-bhv" secondAttribute="bottom" constant="15" id="GSb-5y-hAe"/>
-                <constraint firstAttribute="bottom" secondItem="d8h-gS-M9o" secondAttribute="bottom" constant="20" id="GSb-Tz-bDl"/>
-                <constraint firstItem="o2z-gQ-4Op" firstAttribute="top" secondItem="4Ac-AK-CJe" secondAttribute="bottom" constant="15" id="Ly6-od-COs"/>
+                <constraint firstItem="uX0-Ko-7pI" firstAttribute="top" secondItem="4Ac-AK-CJe" secondAttribute="bottom" constant="15" id="HWd-bb-lYx"/>
                 <constraint firstAttribute="trailing" secondItem="xZc-g5-bhv" secondAttribute="trailing" constant="20" id="M0G-am-JBc"/>
                 <constraint firstItem="QJe-Je-c7x" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="MGz-9h-Dde"/>
                 <constraint firstAttribute="trailing" secondItem="Gmk-Bp-pdA" secondAttribute="trailing" constant="20" id="NuA-4J-332"/>
-                <constraint firstItem="d8h-gS-M9o" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="ORL-u9-4x7"/>
                 <constraint firstItem="4Ac-AK-CJe" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="PYM-tf-W84"/>
-                <constraint firstItem="o2z-gQ-4Op" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="PZ9-UB-uWu"/>
                 <constraint firstItem="pMl-Wv-HFt" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="S46-F3-fWr"/>
                 <constraint firstAttribute="trailing" secondItem="QJe-Je-c7x" secondAttribute="trailing" constant="20" id="TJw-GL-hX4"/>
                 <constraint firstItem="zoT-ds-meF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="TJx-8B-m3k"/>
@@ -446,7 +427,7 @@
                 <constraint firstAttribute="trailing" secondItem="NZ8-bd-u4A" secondAttribute="trailing" constant="20" id="c1f-HM-5PP"/>
                 <constraint firstItem="AVY-Iu-4f2" firstAttribute="width" secondItem="zoT-ds-meF" secondAttribute="width" id="eGy-jb-PEQ"/>
                 <constraint firstAttribute="trailing" secondItem="Ljd-G6-M6A" secondAttribute="trailing" constant="20" id="eS4-O1-K76"/>
-                <constraint firstAttribute="bottom" secondItem="o2z-gQ-4Op" secondAttribute="bottom" constant="20" id="epp-2m-GCH"/>
+                <constraint firstItem="uX0-Ko-7pI" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="epe-Mv-ib2"/>
                 <constraint firstItem="Ljd-G6-M6A" firstAttribute="top" secondItem="NZ8-bd-u4A" secondAttribute="bottom" constant="4" id="iuJ-7y-Whm"/>
                 <constraint firstItem="4Ac-AK-CJe" firstAttribute="top" secondItem="pMl-Wv-HFt" secondAttribute="bottom" constant="15" id="jo1-P5-JXh"/>
                 <constraint firstAttribute="trailing" secondItem="pMl-Wv-HFt" secondAttribute="trailing" constant="20" id="kaj-0N-YLx"/>
@@ -456,11 +437,11 @@
                 <constraint firstItem="NZ8-bd-u4A" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="owA-bI-KsT"/>
                 <constraint firstItem="QJe-Je-c7x" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="pqV-Qp-hRq"/>
                 <constraint firstItem="Ljd-G6-M6A" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="q0e-eI-vCn"/>
-                <constraint firstItem="d8h-gS-M9o" firstAttribute="top" secondItem="4Ac-AK-CJe" secondAttribute="bottom" constant="15" id="r2b-FH-NWs"/>
                 <constraint firstItem="AVY-Iu-4f2" firstAttribute="top" secondItem="zoT-ds-meF" secondAttribute="bottom" constant="8" id="rCv-bW-KE1"/>
                 <constraint firstAttribute="trailing" secondItem="4Ac-AK-CJe" secondAttribute="trailing" constant="20" id="sRM-tQ-X5V"/>
                 <constraint firstItem="Gmk-Bp-pdA" firstAttribute="top" secondItem="4Ac-AK-CJe" secondAttribute="bottom" constant="15" id="vjO-ex-MMp"/>
                 <constraint firstAttribute="trailing" secondItem="JSh-G4-HEF" secondAttribute="trailing" constant="20" id="wQj-8O-DJa"/>
+                <constraint firstAttribute="bottom" secondItem="uX0-Ko-7pI" secondAttribute="bottom" constant="20" id="x7K-wa-doK"/>
             </constraints>
             <point key="canvasLocation" x="353" y="396.5"/>
         </customView>
