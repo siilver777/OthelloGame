@@ -74,6 +74,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7462D5E1CA7FCD700E4293C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				D7B263071C9EF0C200C24114 /* Assets.xcassets */,
+				D7B263091C9EF0C200C24114 /* MainMenu.xib */,
+				D709996A1CA7076B00AB9D4D /* GameViewController.xib */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		D7462D5F1CA7FCEF00E4293C /* Fonctionnement du jeu */ = {
+			isa = PBXGroup;
+			children = (
+				D7B263201C9F0AD700C24114 /* Plateau.swift */,
+				D7B263221C9F116200C24114 /* Coordonnees.swift */,
+				D7462D581CA711CC00E4293C /* GameViewController.swift */,
+			);
+			name = "Fonctionnement du jeu";
+			sourceTree = "<group>";
+		};
+		D7462D601CA7FCFC00E4293C /* IA */ = {
+			isa = PBXGroup;
+			children = (
+				D7B263241C9F128300C24114 /* Strategie.swift */,
+				D7B263261C9F155200C24114 /* Aleatoire.swift */,
+				D7B263281C9F164900C24114 /* GreedyStrategy.swift */,
+				D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */,
+				D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */,
+				D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */,
+			);
+			name = IA;
+			sourceTree = "<group>";
+		};
 		D7B262F91C9EF0C200C24114 = {
 			isa = PBXGroup;
 			children = (
@@ -95,21 +128,12 @@
 		D7B263041C9EF0C200C24114 /* Othello */ = {
 			isa = PBXGroup;
 			children = (
-				D7B263051C9EF0C200C24114 /* AppDelegate.swift */,
-				D7B263261C9F155200C24114 /* Aleatoire.swift */,
-				D7B263281C9F164900C24114 /* GreedyStrategy.swift */,
-				D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */,
-				D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */,
-				D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */,
-				D7B263201C9F0AD700C24114 /* Plateau.swift */,
-				D7462D5A1CA7332D00E4293C /* Constantes.swift */,
-				D7B263221C9F116200C24114 /* Coordonnees.swift */,
-				D7B263241C9F128300C24114 /* Strategie.swift */,
-				D7B263071C9EF0C200C24114 /* Assets.xcassets */,
-				D7B263091C9EF0C200C24114 /* MainMenu.xib */,
 				D7B2630C1C9EF0C200C24114 /* Info.plist */,
-				D709996A1CA7076B00AB9D4D /* GameViewController.xib */,
-				D7462D581CA711CC00E4293C /* GameViewController.swift */,
+				D7B263051C9EF0C200C24114 /* AppDelegate.swift */,
+				D7462D5A1CA7332D00E4293C /* Constantes.swift */,
+				D7462D5E1CA7FCD700E4293C /* Interface */,
+				D7462D601CA7FCFC00E4293C /* IA */,
+				D7462D5F1CA7FCEF00E4293C /* Fonctionnement du jeu */,
 			);
 			path = Othello;
 			sourceTree = "<group>";

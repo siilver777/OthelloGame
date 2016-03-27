@@ -13,6 +13,8 @@ class GameViewController: NSViewController {
     @IBOutlet weak var scoreNoirTextField: NSTextField!
     @IBOutlet weak var scoreBlancTextField: NSTextField!
     @IBOutlet weak var plateauMatrix: NSMatrix!
+    @IBOutlet weak var messageTextField: NSTextField!
+    
     
     var plateau: Plateau!
     var joueurActuel: Int!
@@ -30,13 +32,13 @@ class GameViewController: NSViewController {
         self.mouvement(mouvement)
     }
     
-    /*@IBAction func lancerNouvellePartie(sender: AnyObject) {
+    @IBAction func abandon(sender: AnyObject) {
         self.nouvellePartie()
-    }*/
+    }
     
-    /*@IBAction func passerTour(sender: AnyObject) {
-        
-    }*/
+    @IBAction func passerTour(sender: AnyObject) {
+        self.passer()
+    }
     
     func afficherPlateau() {
         var scoreNoir = 0
@@ -50,9 +52,11 @@ class GameViewController: NSViewController {
                 // On active la cellule seulement si le mouvement est possible par l'utilisateur
                 if self.joueurActuel == NOIR && self.plateau.isMouvementPossible(self.joueurActuel, ligne: i+1, colonne: j+1) {
                     cell.enabled = true
+                    cell.image = NSImage(named: "jouable")
                 }
                 else {
                     cell.enabled = false
+                    cell.image = nil
                 }
                 
                 switch(etatCase) {
@@ -62,11 +66,8 @@ class GameViewController: NSViewController {
                 case WHITE:
                     cell.image = NSImage(named: "whitepiece")
                     scoreBlanc += 1
-                case EMPTY:
-                    cell.image = nil
                 default:
-                    print("Case jouable")
-                    cell.image = NSImage(named: "jouable")
+                    break
                 }
             }
         }
@@ -88,7 +89,7 @@ class GameViewController: NSViewController {
             queue = NSOperationQueue()
         }
         
-        self.difficulte = Aleatoire(controller: self, player: WHITE)
+        self.difficulte = AlphaBeta(controller: self)
         
         if self.plateau != nil {
             self.plateau.reset()

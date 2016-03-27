@@ -9,7 +9,6 @@
 import Foundation
 
 class Plateau {
-    let directions = [-11, -10, -9, -1, 1, 9, 10, 11]
     var etatPlateau: [Int]
     
     init() {
@@ -33,7 +32,7 @@ class Plateau {
         
         let adversaire = -joueur
         
-        for direction in self.directions {
+        for direction in DIRECTIONS {
             var voisin = caseDemandee + direction
             
             if self.etatPlateau[voisin] == adversaire {
@@ -71,7 +70,7 @@ class Plateau {
         
         self.etatPlateau[caseDemandee] = joueur
         
-        for direction in self.directions {
+        for direction in DIRECTIONS {
             var voisin = caseDemandee + direction
             
             if self.etatPlateau[voisin] == adversaire {
@@ -111,8 +110,8 @@ class Plateau {
         var voisins: [Coordonnees] = []
         let caseDemandee = ligne * 10 + colonne
         
-        for i in 0..<8 {
-            let voisin = caseDemandee + self.directions[i]
+        for direction in DIRECTIONS {
+            let voisin = caseDemandee + direction
             
             if voisin < 100 && voisin >= 0 && self.etatPlateau[voisin] != BORD_PLATEAU {
                 voisins.append(Coordonnees(ligne: voisin/10, colonne: voisin%10))

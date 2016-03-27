@@ -10,6 +10,66 @@ import Foundation
 
 let AB_PLIES = 2
 
+class AlphaBeta: Poids {
+    override func calculMouvement(plateau: Plateau) {
+        let date = NSDate()
+        
+        let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
+        
+        if mouvementsPossibles.isEmpty {
+            self.pause(date)
+            self.passer()
+        }
+        else {
+            var meilleurMouvement: Coordonnees?
+            var meilleureValeur: Int?
+            
+            for mouvement in mouvementsPossibles {
+                let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
+                
+                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 2, A: Int(UInt8.min), B: Int(UInt8.max))
+                
+                if meilleurMouvement == nil || valeur > meilleureValeur {
+                    meilleurMouvement = mouvement
+                    meilleureValeur = valeur
+                }
+            }
+            
+            self.pause(date)
+            self.mouvement(meilleurMouvement!)
+        }
+    }
+    
+    func minmax(plateau: Plateau, joueur: Int, profondeur: Int, A: Int, B: Int) -> Int {
+        let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
+        var a = A
+        var b = B
+        
+        if profondeur == 0 || mouvementsPossibles.isEmpty {
+            return self.utiliteCoins(plateau, joueur: BLANC, negation: true)
+        }
+        
+        for mouvement in mouvementsPossibles {
+            let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
+            
+            let indice = self.minmax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1, A: A, B: B)
+            
+            if joueur != BLANC {
+                if indice < b {
+                    b = indice
+                }
+            }
+            else {
+                if indice > a {
+                    a = indice
+                }
+            }
+        }
+        
+        return (joueur != BLANC) ? b : a
+    }
+}
+
 /*class AlphaBetaStrategy: WeightedStrategy {
     override func computeNextMoveForBoard(board: Board) {
         let date = NSDate()

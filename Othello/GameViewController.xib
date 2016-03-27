@@ -457,5 +457,6 @@
             </constraints>
             <point key="canvasLocation" x="353" y="396.5"/>
         </customView>
+        <userDefaultsController representsSharedInstance="YES" id="loy-7f-C0O"/>
     </objects>
 </document>

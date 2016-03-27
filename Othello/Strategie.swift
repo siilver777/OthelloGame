@@ -11,7 +11,7 @@ import Foundation
 class Strategie {
     let gameViewController: GameViewController
     
-    required init(controller: GameViewController, player: Int) {
+    required init(controller: GameViewController) {
         self.gameViewController = controller
     }
     
