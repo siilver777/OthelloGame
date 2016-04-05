@@ -19,9 +19,9 @@
 		D7B263251C9F128300C24114 /* Strategie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263241C9F128300C24114 /* Strategie.swift */; };
 		D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263261C9F155200C24114 /* Aleatoire.swift */; };
 		D7B263291C9F164900C24114 /* GreedyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263281C9F164900C24114 /* GreedyStrategy.swift */; };
-		D7B2632B1C9F180400C24114 /* AlphaBetaStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */; };
+		D7B2632B1C9F180400C24114 /* AlphaBeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632A1C9F180400C24114 /* AlphaBeta.swift */; };
 		D7B2632D1C9F1A7500C24114 /* AlphaBetaMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */; };
-		D7B2632F1C9F1AA200C24114 /* WeightedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */; };
+		D7B2632F1C9F1AA200C24114 /* Poids.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632E1C9F1AA200C24114 /* Poids.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +51,9 @@
 		D7B263241C9F128300C24114 /* Strategie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategie.swift; sourceTree = "<group>"; };
 		D7B263261C9F155200C24114 /* Aleatoire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aleatoire.swift; sourceTree = "<group>"; };
 		D7B263281C9F164900C24114 /* GreedyStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreedyStrategy.swift; sourceTree = "<group>"; };
-		D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBetaStrategy.swift; sourceTree = "<group>"; };
+		D7B2632A1C9F180400C24114 /* AlphaBeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBeta.swift; sourceTree = "<group>"; };
 		D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBetaMove.swift; sourceTree = "<group>"; };
-		D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedStrategy.swift; sourceTree = "<group>"; };
+		D7B2632E1C9F1AA200C24114 /* Poids.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poids.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +100,9 @@
 				D7B263241C9F128300C24114 /* Strategie.swift */,
 				D7B263261C9F155200C24114 /* Aleatoire.swift */,
 				D7B263281C9F164900C24114 /* GreedyStrategy.swift */,
-				D7B2632A1C9F180400C24114 /* AlphaBetaStrategy.swift */,
+				D7B2632A1C9F180400C24114 /* AlphaBeta.swift */,
 				D7B2632C1C9F1A7500C24114 /* AlphaBetaMove.swift */,
-				D7B2632E1C9F1AA200C24114 /* WeightedStrategy.swift */,
+				D7B2632E1C9F1AA200C24114 /* Poids.swift */,
 			);
 			name = IA;
 			sourceTree = "<group>";
@@ -254,10 +254,10 @@
 				D7B263231C9F116200C24114 /* Coordonnees.swift in Sources */,
 				D7B263211C9F0AD700C24114 /* Plateau.swift in Sources */,
 				D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */,
-				D7B2632B1C9F180400C24114 /* AlphaBetaStrategy.swift in Sources */,
+				D7B2632B1C9F180400C24114 /* AlphaBeta.swift in Sources */,
 				D7B263291C9F164900C24114 /* GreedyStrategy.swift in Sources */,
 				D7B263061C9EF0C200C24114 /* AppDelegate.swift in Sources */,
-				D7B2632F1C9F1AA200C24114 /* WeightedStrategy.swift in Sources */,
+				D7B2632F1C9F1AA200C24114 /* Poids.swift in Sources */,
 				D7B2632D1C9F1A7500C24114 /* AlphaBetaMove.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

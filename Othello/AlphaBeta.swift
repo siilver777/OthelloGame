@@ -25,7 +25,7 @@ class AlphaBeta: Poids {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 5, A: Int(UInt8.min), B: Int(UInt8.max))
+                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 3, A: Int(UInt8.min), B: Int(UInt8.max))
                 
                 if meilleurMouvement == nil || valeur > meilleureValeur {
                     meilleurMouvement = mouvement

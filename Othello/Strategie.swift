@@ -16,12 +16,12 @@ class Strategie {
     }
     
     func computeNextMoveForBoard(board: Plateau) {
-        //NSException.raise(NSInternalInconsistencyException, format: "You must override in a subclass", NSString(string: ""))
-        print("You must override in a subclass")
+        //NSException.raise(NSInternalInconsistencyException, format: "Méthode abstraite", NSString(string: ""))
+        print("Méthode abstraite")
     }
     
     func calculMouvement(plateau: Plateau) {
-       print("error")
+       print("erreur")
     }
     
     func mouvement(mouvement: Coordonnees) {
@@ -36,7 +36,7 @@ class Strategie {
         let intervalle = date.timeIntervalSinceNow * -1
         
         if intervalle < TEMPS_PAUSE {
-            NSLog("Sleeping for \(intervalle)")
+            NSLog("Temps de réflexion \(intervalle)")
             NSThread.sleepForTimeInterval(TEMPS_PAUSE-intervalle)
         }
     }
