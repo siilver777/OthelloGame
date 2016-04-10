@@ -87,10 +87,10 @@
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-Bp-pdA">
                     <rect key="frame" x="527" y="13" width="139" height="32"/>
-                    <buttonCell key="cell" type="push" title="Recommencer" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sBb-1s-93N">
+                    <buttonCell key="cell" type="push" title="Recommencer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sBb-1s-93N">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system" size="15"/>
-                        <string key="keyEquivalent">a</string>
+                        <string key="keyEquivalent">r</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                     <connections>
@@ -105,17 +105,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-Ko-7pI">
-                    <rect key="frame" x="18" y="17" width="37" height="26"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VkT-pW-Oy8">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="9Sm-eN-Rdi"/>
-                        <connections>
-                            <action selector="changerDifficulte:" target="-2" id="h3K-mE-t1K"/>
-                        </connections>
-                    </popUpButtonCell>
-                </popUpButton>
                 <matrix verticalHuggingPriority="750" mode="highlight" drawsBackground="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMl-Wv-HFt">
                     <rect key="frame" x="20" y="90" width="640" height="640"/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -402,6 +391,17 @@
                         <action selector="caseSelectionnee:" target="-2" id="UmS-iR-daH"/>
                     </connections>
                 </matrix>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-Ko-7pI">
+                    <rect key="frame" x="18" y="17" width="37" height="26"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="VkT-pW-Oy8">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="9Sm-eN-Rdi"/>
+                        <connections>
+                            <action selector="changerDifficulte:" target="-2" id="h3K-mE-t1K"/>
+                        </connections>
+                    </popUpButtonCell>
+                </popUpButton>
             </subviews>
             <constraints>
                 <constraint firstItem="JSh-G4-HEF" firstAttribute="top" secondItem="QJe-Je-c7x" secondAttribute="bottom" constant="8" id="0ei-RJ-GO9"/>
