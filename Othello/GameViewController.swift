@@ -150,17 +150,11 @@ class GameViewController: NSViewController {
                 // Blanc gagne
                 self.messageTextField.stringValue = "Terminé ! Victoire des Blancs."
             }
-            
-            // Remise en place des boutons, etc ……
-            
         }
         else {
             if joueurActuel == BLANC {
                 // L'IA est en train de jouer
                 self.messageTextField.stringValue = "L'IA est en train de jouer"
-                if mouvementsBlanc.isEmpty {
-                    self.passer()
-                }
                 
                 queue?.addOperation(NSBlockOperation {
                     self.difficulte!.calculMouvement(self.plateau)

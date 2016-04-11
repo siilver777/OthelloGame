@@ -9,7 +9,7 @@
 import Foundation
 
 class Poids: Strategie {
-    let weights = [
+    let poids = [
         0,  0,      0,      0,  0,  0,  0,  0,      0,      0,
         0,  120,    -20,    20, 5,  5,  20, -20,    120,    0,
         0,  -20,    -40,    -5, -5, -5, -5, -40,    -20,    0,
@@ -31,10 +31,10 @@ class Poids: Strategie {
             for j in 1...8 {
                 let caseCourante = plateau.etatCase(i, colonne: j)
                 if caseCourante == joueur {
-                    utilite += self.weights[i * 10 + j]
+                    utilite += self.poids[i * 10 + j]
                 }
                 else if (negation && caseCourante == -joueur) {
-                    utilite -= self.weights[i * 10 + j]
+                    utilite -= self.poids[i * 10 + j]
                 }
             }
         }
@@ -59,7 +59,7 @@ class Poids: Strategie {
                     
                     if etatCase != EMPTY {
                         
-                        utilite += (5 - self.weights[indice])
+                        utilite += (5 - self.poids[indice])
                         utilite *= (etatCase == joueur) ? 1 : -1
                     }
                 }

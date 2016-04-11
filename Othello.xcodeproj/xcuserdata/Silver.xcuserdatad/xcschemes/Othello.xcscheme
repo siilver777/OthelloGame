@@ -37,6 +37,11 @@
                BlueprintName = "OthelloTests"
                ReferencedContainer = "container:Othello.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "OthelloTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

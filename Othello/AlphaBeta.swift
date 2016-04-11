@@ -25,7 +25,9 @@ class AlphaBeta: Poids {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.alphabeta(nouveauPlateau, joueur: BLANC, profondeur: 3, A: Int(UInt8.min), B: Int(UInt8.max))
+                let valeur = self.alphabeta(nouveauPlateau, joueur: BLANC, profondeur: 3, A: -Int(UInt16.max), B: Int(UInt16.max))
+                
+                print("valeur : \(valeur)")
                 
                 if meilleurMouvement == nil || valeur > meilleureValeur {
                     meilleurMouvement = mouvement
@@ -35,6 +37,8 @@ class AlphaBeta: Poids {
             
             self.pause(date)
             self.mouvement(meilleurMouvement!)
+            
+            print("meilleure valeur : \(meilleureValeur)")
         }
     }
     

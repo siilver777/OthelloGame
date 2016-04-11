@@ -27,6 +27,8 @@ class MinMax: Poids {
                 
                 let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 2)
                 
+                print("valeur : \(valeur)")
+                
                 if meilleurMouvement == nil || valeur > meilleureValeur {
                     meilleurMouvement = mouvement
                     meilleureValeur = valeur
@@ -35,6 +37,8 @@ class MinMax: Poids {
             
             self.pause(date)
             self.mouvement(meilleurMouvement!)
+            
+            print("meilleure valeur : \(meilleureValeur)")
         }
     }
     
