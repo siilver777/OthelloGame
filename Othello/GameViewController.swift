@@ -25,7 +25,7 @@ class GameViewController: NSViewController {
         super.viewDidLoad()
         
         // Ajout des difficultés au menu
-        difficultePopUpButton.addItemsWithTitles(["Facile", "Moyen"])
+        difficultePopUpButton.addItemsWithTitles(["Facile", "Moyen", "Difficile", "Extrême"])
         
         // Difficulté par défaut (facile)
         self.difficulte = Aleatoire(controller: self)
@@ -46,7 +46,11 @@ class GameViewController: NSViewController {
     @IBAction func changerDifficulte(sender: AnyObject) {
         switch difficultePopUpButton.indexOfSelectedItem {
         case 1:
+            self.difficulte = MinMax(controller: self)
+        case 2:
             self.difficulte = AlphaBeta(controller: self)
+        case 3:
+            self.difficulte = NegaScout(controller: self)
         default:
             self.difficulte = Aleatoire(controller: self)
         }

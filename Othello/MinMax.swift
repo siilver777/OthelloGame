@@ -1,14 +1,14 @@
 //
-//  AlphaBeta.swift
+//  MinMax.swift
 //  Othello
 //
-//  Created by Jason Pierna on 20/03/2016.
+//  Created by Jason Pierna on 11/04/2016.
 //  Copyright © 2016 Jason Pierna. All rights reserved.
 //
 
 import Foundation
 
-class AlphaBeta: Poids {
+class MinMax: Poids {
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -25,7 +25,7 @@ class AlphaBeta: Poids {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.alphabeta(nouveauPlateau, joueur: BLANC, profondeur: 3, A: Int(UInt8.min), B: Int(UInt8.max))
+                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 2)
                 
                 if meilleurMouvement == nil || valeur > meilleureValeur {
                     meilleurMouvement = mouvement
@@ -38,32 +38,25 @@ class AlphaBeta: Poids {
         }
     }
     
-    func alphabeta(plateau: Plateau, joueur: Int, profondeur: Int, A: Int, B: Int) -> Int {
+    func minmax(plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
         let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
-        var a = A
-        var b = B
         
         if profondeur == 0 || mouvementsPossibles.isEmpty {
             return self.utiliteCoins(plateau, joueur: BLANC, negation: true)
         }
         
+        var meilleureValeur = Int(UInt8.min)
+        
         for mouvement in mouvementsPossibles {
             let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
             
-            let indice = self.alphabeta(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1, A: A, B: B)
+            let indice = self.minmax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1)
             
-            if joueur != BLANC {
-                if indice < b {
-                    b = indice
-                }
-            }
-            else {
-                if indice > a {
-                    a = indice
-                }
+            if indice > meilleureValeur {
+                meilleureValeur = indice
             }
         }
         
-        return (joueur != BLANC) ? b : a
+        return meilleureValeur
     }
 }
