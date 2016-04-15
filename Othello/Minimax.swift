@@ -1,5 +1,5 @@
 //
-//  MinMax.swift
+//  Minimax.swift
 //  Othello
 //
 //  Created by Jason Pierna on 11/04/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MinMax: Poids {
+class Minimax: Strategie {
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -25,7 +25,7 @@ class MinMax: Poids {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.minmax(nouveauPlateau, joueur: BLANC, profondeur: 2)
+                let valeur = self.minimax(nouveauPlateau, joueur: BLANC, profondeur: 2)
                 
                 print("valeur : \(valeur)")
                 
@@ -42,11 +42,11 @@ class MinMax: Poids {
         }
     }
     
-    func minmax(plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
+    func minimax(plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
         let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
         
         if profondeur == 0 || mouvementsPossibles.isEmpty {
-            return self.utiliteCoins(plateau, joueur: BLANC, negation: true)
+            return self.fonctionEvaluation(plateau, joueur: BLANC, negation: true)
         }
         
         var meilleureValeur = Int(UInt8.min)
@@ -54,7 +54,7 @@ class MinMax: Poids {
         for mouvement in mouvementsPossibles {
             let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
             
-            let indice = self.minmax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1)
+            let indice = self.minimax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1)
             
             if indice > meilleureValeur {
                 meilleureValeur = indice

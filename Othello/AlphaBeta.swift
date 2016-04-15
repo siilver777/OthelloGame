@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AlphaBeta: Poids {
+class AlphaBeta: Strategie {
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -48,7 +48,7 @@ class AlphaBeta: Poids {
         var b = B
         
         if profondeur == 0 || mouvementsPossibles.isEmpty {
-            return self.utiliteCoins(plateau, joueur: BLANC, negation: true)
+            return self.fonctionEvaluation(plateau, joueur: BLANC, negation: true)
         }
         
         for mouvement in mouvementsPossibles {

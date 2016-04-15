@@ -50,8 +50,7 @@
         </customObject>
         <window title="Othello IA" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="ist-KM-R10" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="163" y="205" width="680" height="925"/>
+            <rect key="contentRect" x="459" y="53" width="680" height="925"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
             <value key="minSize" type="size" width="680" height="925"/>
             <view key="contentView" id="av8-Tq-Gu1">

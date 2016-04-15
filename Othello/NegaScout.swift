@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NegaScout: Poids {
+class NegaScout: Strategie {
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -48,7 +48,7 @@ class NegaScout: Poids {
         let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
         
         if profondeur == 0 || mouvementsPossibles.isEmpty {
-            return self.utiliteCoins(plateau, joueur: BLANC, negation: true)
+            return self.fonctionEvaluation(plateau, joueur: BLANC, negation: true)
         }
         
         var a = A

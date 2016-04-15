@@ -25,7 +25,7 @@ class GameViewController: NSViewController {
         super.viewDidLoad()
         
         // Ajout des difficultés au menu
-        difficultePopUpButton.addItemsWithTitles(["Facile", "Moyen", "Difficile", "Extrême"])
+        difficultePopUpButton.addItemsWithTitles(["Très facile", "Facile", "Moyen", "Difficile", "Extrême"])
         
         // Difficulté par défaut (facile)
         self.difficulte = Aleatoire(controller: self)
@@ -46,10 +46,12 @@ class GameViewController: NSViewController {
     @IBAction func changerDifficulte(sender: AnyObject) {
         switch difficultePopUpButton.indexOfSelectedItem {
         case 1:
-            self.difficulte = MinMax(controller: self)
+            self.difficulte = Heuristique(controller: self)
         case 2:
-            self.difficulte = AlphaBeta(controller: self)
+            self.difficulte = Minimax(controller: self)
         case 3:
+            self.difficulte = AlphaBeta(controller: self)
+        case 4:
             self.difficulte = NegaScout(controller: self)
         default:
             self.difficulte = Aleatoire(controller: self)
@@ -137,6 +139,7 @@ class GameViewController: NSViewController {
         let mouvementsBlanc = self.plateau.mouvementsPossibles(BLANC)
         
         if mouvementsNoir.isEmpty && mouvementsBlanc.isEmpty {
+            
             // Fin du jeu, on détermine le gagnant
             if scoreNoirTextField.intValue == scoreBlancTextField.intValue {
                 // Egalité
@@ -163,6 +166,7 @@ class GameViewController: NSViewController {
             else {
                 // À vous de jouer
                 self.messageTextField.stringValue = "À vous de jouer"
+                
                 if mouvementsNoir.isEmpty {
                     self.passer()
                 }

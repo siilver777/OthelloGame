@@ -1,5 +1,5 @@
 //
-//  RandowStrategy.swift
+//  Aleatoire.swift
 //  Othello
 //
 //  Created by Jason Pierna on 20/03/2016.
@@ -10,14 +10,16 @@ import Foundation
 
 class Aleatoire: Strategie {
     override func calculMouvement(plateau: Plateau) {
-        NSThread.sleepForTimeInterval(TEMPS_PAUSE)
+        let date = NSDate()
         
-        var mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
-                
+        let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
+        
         if mouvementsPossibles.isEmpty {
+            self.pause(date)
             self.passer()
         }
         else {
+            self.pause(date)
             self.mouvement(mouvementsPossibles[random() % mouvementsPossibles.count])
         }
     }

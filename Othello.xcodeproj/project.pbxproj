@@ -13,14 +13,13 @@
 		D7B263061C9EF0C200C24114 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263051C9EF0C200C24114 /* AppDelegate.swift */; };
 		D7B263081C9EF0C200C24114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B263071C9EF0C200C24114 /* Assets.xcassets */; };
 		D7B2630B1C9EF0C200C24114 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B263091C9EF0C200C24114 /* MainMenu.xib */; };
-		D7B263161C9EF0C200C24114 /* OthelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263151C9EF0C200C24114 /* OthelloTests.swift */; };
 		D7B263211C9F0AD700C24114 /* Plateau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263201C9F0AD700C24114 /* Plateau.swift */; };
 		D7B263231C9F116200C24114 /* Coordonnees.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263221C9F116200C24114 /* Coordonnees.swift */; };
 		D7B263251C9F128300C24114 /* Strategie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263241C9F128300C24114 /* Strategie.swift */; };
-		D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B263261C9F155200C24114 /* Aleatoire.swift */; };
 		D7B2632B1C9F180400C24114 /* AlphaBeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632A1C9F180400C24114 /* AlphaBeta.swift */; };
-		D7B2632F1C9F1AA200C24114 /* Poids.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2632E1C9F1AA200C24114 /* Poids.swift */; };
-		D7FEB8EB1CBBDE82003D4DE0 /* MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEB8EA1CBBDE82003D4DE0 /* MinMax.swift */; };
+		D7E1539A1CC16DE60031615A /* Aleatoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E153991CC16DE60031615A /* Aleatoire.swift */; };
+		D7E1539C1CC16F800031615A /* Heuristique.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1539B1CC16F800031615A /* Heuristique.swift */; };
+		D7FEB8EB1CBBDE82003D4DE0 /* Minimax.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEB8EA1CBBDE82003D4DE0 /* Minimax.swift */; };
 		D7FEB8ED1CBBE87E003D4DE0 /* NegaScout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEB8EC1CBBE87E003D4DE0 /* NegaScout.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,15 +43,13 @@
 		D7B2630A1C9EF0C200C24114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D7B2630C1C9EF0C200C24114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B263111C9EF0C200C24114 /* OthelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OthelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7B263151C9EF0C200C24114 /* OthelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloTests.swift; sourceTree = "<group>"; };
-		D7B263171C9EF0C200C24114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B263201C9F0AD700C24114 /* Plateau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plateau.swift; sourceTree = "<group>"; };
 		D7B263221C9F116200C24114 /* Coordonnees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordonnees.swift; sourceTree = "<group>"; };
 		D7B263241C9F128300C24114 /* Strategie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategie.swift; sourceTree = "<group>"; };
-		D7B263261C9F155200C24114 /* Aleatoire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aleatoire.swift; sourceTree = "<group>"; };
 		D7B2632A1C9F180400C24114 /* AlphaBeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaBeta.swift; sourceTree = "<group>"; };
-		D7B2632E1C9F1AA200C24114 /* Poids.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poids.swift; sourceTree = "<group>"; };
-		D7FEB8EA1CBBDE82003D4DE0 /* MinMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinMax.swift; sourceTree = "<group>"; };
+		D7E153991CC16DE60031615A /* Aleatoire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aleatoire.swift; sourceTree = "<group>"; };
+		D7E1539B1CC16F800031615A /* Heuristique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heuristique.swift; sourceTree = "<group>"; };
+		D7FEB8EA1CBBDE82003D4DE0 /* Minimax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minimax.swift; sourceTree = "<group>"; };
 		D7FEB8EC1CBBE87E003D4DE0 /* NegaScout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegaScout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,11 +95,11 @@
 			isa = PBXGroup;
 			children = (
 				D7B263241C9F128300C24114 /* Strategie.swift */,
-				D7B263261C9F155200C24114 /* Aleatoire.swift */,
+				D7E153991CC16DE60031615A /* Aleatoire.swift */,
+				D7E1539B1CC16F800031615A /* Heuristique.swift */,
+				D7FEB8EA1CBBDE82003D4DE0 /* Minimax.swift */,
 				D7B2632A1C9F180400C24114 /* AlphaBeta.swift */,
-				D7FEB8EA1CBBDE82003D4DE0 /* MinMax.swift */,
 				D7FEB8EC1CBBE87E003D4DE0 /* NegaScout.swift */,
-				D7B2632E1C9F1AA200C24114 /* Poids.swift */,
 			);
 			name = IA;
 			sourceTree = "<group>";
@@ -111,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				D7B263041C9EF0C200C24114 /* Othello */,
-				D7B263141C9EF0C200C24114 /* OthelloTests */,
 				D7B263031C9EF0C200C24114 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,15 +132,6 @@
 				D7462D5F1CA7FCEF00E4293C /* Fonctionnement du jeu */,
 			);
 			path = Othello;
-			sourceTree = "<group>";
-		};
-		D7B263141C9EF0C200C24114 /* OthelloTests */ = {
-			isa = PBXGroup;
-			children = (
-				D7B263151C9EF0C200C24114 /* OthelloTests.swift */,
-				D7B263171C9EF0C200C24114 /* Info.plist */,
-			);
-			path = OthelloTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,15 +237,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7B263251C9F128300C24114 /* Strategie.swift in Sources */,
-				D7FEB8EB1CBBDE82003D4DE0 /* MinMax.swift in Sources */,
+				D7FEB8EB1CBBDE82003D4DE0 /* Minimax.swift in Sources */,
 				D7462D5B1CA7332D00E4293C /* Constantes.swift in Sources */,
 				D7462D591CA711CC00E4293C /* GameViewController.swift in Sources */,
 				D7B263231C9F116200C24114 /* Coordonnees.swift in Sources */,
 				D7B263211C9F0AD700C24114 /* Plateau.swift in Sources */,
-				D7B263271C9F155200C24114 /* Aleatoire.swift in Sources */,
 				D7B2632B1C9F180400C24114 /* AlphaBeta.swift in Sources */,
 				D7B263061C9EF0C200C24114 /* AppDelegate.swift in Sources */,
-				D7B2632F1C9F1AA200C24114 /* Poids.swift in Sources */,
+				D7E1539C1CC16F800031615A /* Heuristique.swift in Sources */,
+				D7E1539A1CC16DE60031615A /* Aleatoire.swift in Sources */,
 				D7FEB8ED1CBBE87E003D4DE0 /* NegaScout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B263161C9EF0C200C24114 /* OthelloTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
