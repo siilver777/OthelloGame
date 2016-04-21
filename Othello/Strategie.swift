@@ -10,22 +10,9 @@ import Foundation
 
 class Strategie {
     
-    // MARK: - Attributs 
+    // MARK: - Attributs
     
     let gameViewController: GameViewController
-    
-    /*let heuristiques = [
-        0,  0,      0,      0,  0,  0,  0,  0,      0,      0,
-        0,  120,    -20,    20, 5,  5,  20, -20,    120,    0,
-        0,  -20,    -40,    -5, -5, -5, -5, -40,    -20,    0,
-        0,  20,     -5,     15,  3, 3,  15, -5,     20,     0,
-        0,  5,      -5,     3,   3, 3,  3,  -5,     5,      0,
-        0,  5,      -5,     3,   3, 3,  3,  -5,     5,      0,
-        0,  20,     -5,     15,  3, 3,  15, -5,     20,     0,
-        0,  -20,    -40,    -5, -5, -5, -5, -40,    -20,    0,
-        0,  120,    -20,    20, 5,  5,  20, -20,    120,    0,
-        0,  0,      0,      0,  0,  0,  0,  0,      0,      0
-    ]*/
     
     let heuristiques = [
         0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -48,18 +35,38 @@ class Strategie {
         self.gameViewController = controller
     }
     
+    /**
+     Méthode à redéfinir à chaque sous-classe afin d'implémenter l'IA.
+     */
     func calculMouvement(plateau: Plateau) {
-       /* À redéfinir à chaque algorithme */
+        /* À redéfinir à chaque algorithme */
     }
     
+    /**
+     Permet à l'intelligence artificielle de jouer le coup décidé.
+     
+     - parameters:
+     - mouvement: Le coup à jouer.
+     */
     func mouvement(mouvement: Coordonnees) {
         self.gameViewController.mouvement(mouvement)
     }
     
+    /**
+     Permet à l'intelligence artificielle de passer son coup lorsqu'aucun coup n'est disponible.
+     */
     func passer() {
         self.gameViewController.passer()
     }
     
+    /**
+     Définit un temps de pause minimal à l'intelligence artificielle.
+     
+     Si le temps de réflexion est supérieur au temps de pause, on ne provoque pas de pause supplémentaire.
+     
+     - parameters:
+     - date: La date à laquelle l'intelligence commence à jouer.
+     */
     func pause(date: NSDate) {
         let intervalle = date.timeIntervalSinceNow * -1
         
@@ -69,6 +76,14 @@ class Strategie {
         }
     }
     
+    /**
+     Création d'un nouveau plateau de jeu avancé d'un coup supplémentaire.
+     
+     - parameters:
+     - plateau: Le plateau de départ.
+     - mouvement: Le coup à ajouter au plateau de départ.
+     - returns: Le nouveau plateau de jeu.
+     */
     func nouveauPlateau(plateau: Plateau, mouvement: Coordonnees) -> Plateau {
         let nouveauPlateau = Plateau(plateau: plateau)
         nouveauPlateau.mouvement(BLANC, ligne: mouvement.ligne, colonne: mouvement.colonne)
@@ -76,7 +91,15 @@ class Strategie {
         return nouveauPlateau
     }
     
-    func utilite(plateau: Plateau, joueur: Int, negation: Bool) -> Int {
+    /**
+     Évalue le plateau à partir de l'état et l'heuristique de chacune de ses cases.
+     
+     - parameters:
+     - plateau: Le plateau à évaluer.
+     - joueur: Le joueur pour lequel l'utilité est calculé.
+     - returns: L'utilité du plateau.
+     */
+    func fonctionEvaluation(plateau: Plateau, joueur: Int) -> Int {
         var utilite = 0
         
         for i in 1...8 {
@@ -85,35 +108,8 @@ class Strategie {
                 if caseCourante == joueur {
                     utilite += self.heuristiques[i * 10 + j]
                 }
-                else if (negation && caseCourante == -joueur) {
+                else if caseCourante == -joueur {
                     utilite -= self.heuristiques[i * 10 + j]
-                }
-            }
-        }
-        
-        return utilite
-    }
-    
-    func fonctionEvaluation(plateau: Plateau, joueur: Int, negation: Bool) -> Int {
-        var utilite = self.utilite(plateau, joueur: joueur, negation: negation)
-        
-        for coin in self.coins {
-            let ligne = coin / 10
-            let colonne = coin % 10
-            
-            if plateau.etatCase(ligne, colonne: colonne) != CASE_VIDE {
-                
-                let voisins = plateau.voisins(ligne, colonne: colonne)
-                
-                for voisin in voisins {
-                    let indice = voisin.ligne * 10 + voisin.colonne
-                    let etatCase = plateau.etatCase(voisin.ligne, colonne: voisin.colonne)
-                    
-                    if etatCase != EMPTY {
-                        
-                        utilite += (5 - self.heuristiques[indice])
-                        utilite *= (etatCase == joueur) ? 1 : -1
-                    }
                 }
             }
         }

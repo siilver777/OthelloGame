@@ -8,7 +8,17 @@
 
 import Foundation
 
+/**
+ Intelligence artificielle choisissant le coup à jouer de manière aléatoire à partir de ses mouvements possibles.
+ - note: Correspond à la difficulté "Très facile"
+ */
 class Aleatoire: Strategie {
+    
+    /**
+     Permet de choisir un mouvement aléatoire parmi les mouvements possibles.
+     - parameters:
+     - plateau: Le plateau de base.
+     */
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         

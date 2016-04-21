@@ -8,7 +8,18 @@
 
 import Foundation
 
+/**
+ Intelligence artificielle s'appuyant sur l'algorithme Minimax pour déterminer le meilleur coup possible.
+ - note: Correspond à la difficulté "Moyen"
+ */
 class Minimax: Strategie {
+    
+    /**
+     Permet de choisir le meilleur mouvement parmi les différents plateaux jouables. Chaque mouvement jouable est accompagné de sa valeur provenant de l'algorithme Minimax.
+     - note : L'algorithme Minimax est utilisé avec une profondeur de 2.
+     - parameters:
+        - plateau: Le plateau de base.
+     */
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -42,11 +53,20 @@ class Minimax: Strategie {
         }
     }
     
+    
+    /**
+     Implémentation de l'algorithme Minimax consistant à étudier toutes les possibilités et à déterminer le meilleur choix possible, c'est-à-dire le coup minimisant les pertes du joueur
+     - parameters:
+        - plateau: Le plateau de jeu concerné.
+        - joueur: Le joueur concerné.
+        - profondeur: La profondeur de l'algorithme.
+     - returns: La valeur du meilleur coup
+    */
     func minimax(plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
         let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
         
         if profondeur == 0 || mouvementsPossibles.isEmpty {
-            return self.fonctionEvaluation(plateau, joueur: BLANC, negation: true)
+            return self.fonctionEvaluation(plateau, joueur: BLANC)
         }
         
         var meilleureValeur = Int(UInt8.min)

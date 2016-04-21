@@ -8,7 +8,18 @@
 
 import Foundation
 
+
+/**
+ Intelligence artificielle calculant l'utilité des plateaux résultats de chaque coup possible et choisissant le coup avec la plus grande utilité
+ - note: Correspond à la difficulté "Facile"
+ */
 class Heuristique: Strategie {
+    
+    /**
+     Permet de choisir le mouvement avec la plus grande heuristique parmi les mouvements possibles.
+     - parameters:
+     - plateau: Le plateau de base.
+     */
     override func calculMouvement(plateau: Plateau) {
         let date = NSDate()
         
@@ -26,7 +37,7 @@ class Heuristique: Strategie {
             for mouvement in mouvementsPossibles {
                 let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
                 
-                let valeur = self.fonctionEvaluation(nouveauPlateau, joueur: BLANC, negation: true)
+                let valeur = self.fonctionEvaluation(nouveauPlateau, joueur: BLANC)
                 
                 print("valeur : \(valeur)")
                 
