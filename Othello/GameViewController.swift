@@ -19,13 +19,13 @@ class GameViewController: NSViewController {
     var plateau: Plateau!
     var joueurActuel: Int!
     var difficulte: Strategie?
-    var queue: NSOperationQueue?
+    var queue: OperationQueue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Ajout des difficultés au menu
-        difficultePopUpButton.addItemsWithTitles(["Très facile", "Facile", "Moyen", "Difficile", "Extrême"])
+        difficultePopUpButton.addItems(withTitles: ["Très facile", "Facile", "Moyen", "Difficile", "Extrême"])
         
         // Difficulté par défaut (facile)
         self.difficulte = Aleatoire(controller: self)
@@ -34,16 +34,16 @@ class GameViewController: NSViewController {
         self.nouvellePartie()
     }
     
-    @IBAction func caseSelectionnee(sender: AnyObject) {
+    @IBAction func caseSelectionnee(_ sender: AnyObject) {
         let mouvement = Coordonnees(ligne: sender.selectedRow+1, colonne: sender.selectedColumn+1)
         self.mouvement(mouvement)
     }
     
-    @IBAction func recommencer(sender: AnyObject) {
+    @IBAction func recommencer(_ sender: AnyObject) {
         self.nouvellePartie()
     }
     
-    @IBAction func changerDifficulte(sender: AnyObject) {
+    @IBAction func changerDifficulte(_ sender: AnyObject) {
         switch difficultePopUpButton.indexOfSelectedItem {
         case 1:
             self.difficulte = Heuristique(controller: self)
@@ -67,15 +67,15 @@ class GameViewController: NSViewController {
         for i in 0..<8 {
             for j in 0..<8 {
                 let etatCase = self.plateau.etatCase(i+1, colonne: j+1)
-                let cell = self.plateauMatrix.cellAtRow(i, column: j) as! NSButtonCell
+                let cell = self.plateauMatrix.cell(atRow: i, column: j) as! NSButtonCell
                 
                 // On active la cellule seulement si le mouvement est possible par l'utilisateur
                 if self.joueurActuel == NOIR && self.plateau.isMouvementPossible(self.joueurActuel, ligne: i+1, colonne: j+1) {
-                    cell.enabled = true
+                    cell.isEnabled = true
                     cell.image = NSImage(named: "jouable")
                 }
                 else {
-                    cell.enabled = false
+                    cell.isEnabled = false
                     cell.image = nil
                 }
                 
@@ -104,7 +104,7 @@ class GameViewController: NSViewController {
             queue?.cancelAllOperations()
         }
         else {
-            queue = NSOperationQueue()
+            queue = OperationQueue()
         }
         
         if self.plateau != nil {
@@ -118,7 +118,7 @@ class GameViewController: NSViewController {
         self.mouvementSuivant()
     }
     
-    func mouvement(coordonnees: Coordonnees) {
+    func mouvement(_ coordonnees: Coordonnees) {
         self.plateau.mouvement(self.joueurActuel, ligne: coordonnees.ligne, colonne: coordonnees.colonne)
         
         // On change de joueur et on attend le prochain mouvement
@@ -159,7 +159,7 @@ class GameViewController: NSViewController {
                 // L'IA est en train de jouer
                 self.messageTextField.stringValue = "L'IA est en train de jouer"
                 
-                queue?.addOperation(NSBlockOperation {
+                queue?.addOperation(BlockOperation {
                     self.difficulte!.calculMouvement(self.plateau)
                     })
             }

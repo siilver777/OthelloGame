@@ -19,11 +19,11 @@ class Plateau {
         self.etatPlateau = plateau.etatPlateau
     }
     
-    func etatCase(ligne: Int, colonne: Int) -> Int {
+    func etatCase(_ ligne: Int, colonne: Int) -> Int {
         return self.etatPlateau[ligne * 10 + colonne]
     }
     
-    func isMouvementPossible(joueur: Int, ligne: Int, colonne: Int) -> Bool {
+    func isMouvementPossible(_ joueur: Int, ligne: Int, colonne: Int) -> Bool {
         let caseDemandee = ligne * 10 + colonne
         
         if self.etatPlateau[caseDemandee] != CASE_VIDE {
@@ -49,7 +49,7 @@ class Plateau {
         return false
     }
     
-    func mouvementsPossibles(joueur: Int) -> [Coordonnees] {
+    func mouvementsPossibles(_ joueur: Int) -> [Coordonnees] {
         var mouvements: [Coordonnees] = []
         
         for ligne in 1...8 {
@@ -64,7 +64,7 @@ class Plateau {
         return mouvements
     }
     
-    func mouvement(joueur: Int, ligne: Int, colonne: Int) {
+    func mouvement(_ joueur: Int, ligne: Int, colonne: Int) {
         let caseDemandee = ligne * 10 + colonne
         let adversaire = -joueur
         
@@ -92,7 +92,7 @@ class Plateau {
         self.etatPlateau = PLATEAU_DEPART
     }
     
-    func score(joueur: Int) -> Int {
+    func score(_ joueur: Int) -> Int {
         var score = 0
         
         for ligne in 1..<9 {
@@ -106,7 +106,7 @@ class Plateau {
         return score
     }
     
-    func voisins(ligne: Int, colonne: Int) -> [Coordonnees] {
+    func voisins(_ ligne: Int, colonne: Int) -> [Coordonnees] {
         var voisins: [Coordonnees] = []
         let caseDemandee = ligne * 10 + colonne
         

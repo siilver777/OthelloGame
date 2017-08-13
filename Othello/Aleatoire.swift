@@ -19,8 +19,8 @@ class Aleatoire: Strategie {
      - parameters:
      - plateau: Le plateau de base.
      */
-    override func calculMouvement(plateau: Plateau) {
-        let date = NSDate()
+    override func calculMouvement(_ plateau: Plateau) {
+        let date = Date()
         
         let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
         
@@ -30,7 +30,7 @@ class Aleatoire: Strategie {
         }
         else {
             self.pause(date)
-            self.mouvement(mouvementsPossibles[random() % mouvementsPossibles.count])
+            self.mouvement(mouvementsPossibles[Int(arc4random()) % mouvementsPossibles.count])
         }
     }
 }

@@ -38,7 +38,7 @@ class Strategie {
     /**
      Méthode à redéfinir à chaque sous-classe afin d'implémenter l'IA.
      */
-    func calculMouvement(plateau: Plateau) {
+    func calculMouvement(_ plateau: Plateau) {
         /* À redéfinir à chaque algorithme */
     }
     
@@ -48,7 +48,7 @@ class Strategie {
      - parameters:
      - mouvement: Le coup à jouer.
      */
-    func mouvement(mouvement: Coordonnees) {
+    func mouvement(_ mouvement: Coordonnees) {
         self.gameViewController.mouvement(mouvement)
     }
     
@@ -67,12 +67,12 @@ class Strategie {
      - parameters:
      - date: La date à laquelle l'intelligence commence à jouer.
      */
-    func pause(date: NSDate) {
+    func pause(_ date: Date) {
         let intervalle = date.timeIntervalSinceNow * -1
         
         if intervalle < TEMPS_PAUSE {
             NSLog("Temps de réflexion \(intervalle)")
-            NSThread.sleepForTimeInterval(TEMPS_PAUSE-intervalle)
+            Thread.sleep(forTimeInterval: TEMPS_PAUSE-intervalle)
         }
     }
     
@@ -84,7 +84,7 @@ class Strategie {
      - mouvement: Le coup à ajouter au plateau de départ.
      - returns: Le nouveau plateau de jeu.
      */
-    func nouveauPlateau(plateau: Plateau, mouvement: Coordonnees) -> Plateau {
+    func nouveauPlateau(_ plateau: Plateau, mouvement: Coordonnees) -> Plateau {
         let nouveauPlateau = Plateau(plateau: plateau)
         nouveauPlateau.mouvement(BLANC, ligne: mouvement.ligne, colonne: mouvement.colonne)
         
@@ -99,7 +99,7 @@ class Strategie {
      - joueur: Le joueur pour lequel l'utilité est calculé.
      - returns: L'utilité du plateau.
      */
-    func fonctionEvaluation(plateau: Plateau, joueur: Int) -> Int {
+    func fonctionEvaluation(_ plateau: Plateau, joueur: Int) -> Int {
         var utilite = 0
         
         for i in 1...8 {

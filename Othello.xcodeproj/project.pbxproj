@@ -23,16 +23,6 @@
 		D7FEB8ED1CBBE87E003D4DE0 /* NegaScout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEB8EC1CBBE87E003D4DE0 /* NegaScout.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D7B263121C9EF0C200C24114 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D7B262FA1C9EF0C200C24114 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D7B263011C9EF0C200C24114;
-			remoteInfo = Othello;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		D709996A1CA7076B00AB9D4D /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		D7462D581CA711CC00E4293C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +32,6 @@
 		D7B263071C9EF0C200C24114 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7B2630A1C9EF0C200C24114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D7B2630C1C9EF0C200C24114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7B263111C9EF0C200C24114 /* OthelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OthelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B263201C9F0AD700C24114 /* Plateau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plateau.swift; sourceTree = "<group>"; };
 		D7B263221C9F116200C24114 /* Coordonnees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordonnees.swift; sourceTree = "<group>"; };
 		D7B263241C9F128300C24114 /* Strategie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategie.swift; sourceTree = "<group>"; };
@@ -55,13 +44,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D7B262FF1C9EF0C200C24114 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7B2630E1C9EF0C200C24114 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -116,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				D7B263021C9EF0C200C24114 /* Othello.app */,
-				D7B263111C9EF0C200C24114 /* OthelloTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,24 +135,6 @@
 			productReference = D7B263021C9EF0C200C24114 /* Othello.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D7B263101C9EF0C200C24114 /* OthelloTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D7B2631D1C9EF0C200C24114 /* Build configuration list for PBXNativeTarget "OthelloTests" */;
-			buildPhases = (
-				D7B2630D1C9EF0C200C24114 /* Sources */,
-				D7B2630E1C9EF0C200C24114 /* Frameworks */,
-				D7B2630F1C9EF0C200C24114 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D7B263131C9EF0C200C24114 /* PBXTargetDependency */,
-			);
-			name = OthelloTests;
-			productName = OthelloTests;
-			productReference = D7B263111C9EF0C200C24114 /* OthelloTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,16 +142,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Jason Pierna";
 				TargetAttributes = {
 					D7B263011C9EF0C200C24114 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 5RUJTG3BGA;
-					};
-					D7B263101C9EF0C200C24114 = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = D7B263011C9EF0C200C24114;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -206,7 +166,6 @@
 			projectRoot = "";
 			targets = (
 				D7B263011C9EF0C200C24114 /* Othello */,
-				D7B263101C9EF0C200C24114 /* OthelloTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,13 +178,6 @@
 				D709996B1CA7076B00AB9D4D /* GameViewController.xib in Resources */,
 				D7B263081C9EF0C200C24114 /* Assets.xcassets in Resources */,
 				D7B2630B1C9EF0C200C24114 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7B2630F1C9EF0C200C24114 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,22 +202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7B2630D1C9EF0C200C24114 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D7B263131C9EF0C200C24114 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D7B263011C9EF0C200C24114 /* Othello */;
-			targetProxy = D7B263121C9EF0C200C24114 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D7B263091C9EF0C200C24114 /* MainMenu.xib */ = {
@@ -292,8 +229,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -336,8 +275,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -356,6 +297,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -368,6 +310,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpierna.Othello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -380,32 +323,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpierna.Othello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		D7B2631E1C9EF0C200C24114 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = OthelloTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jpierna.OthelloTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Othello.app/Contents/MacOS/Othello";
-			};
-			name = Debug;
-		};
-		D7B2631F1C9EF0C200C24114 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = OthelloTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jpierna.OthelloTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Othello.app/Contents/MacOS/Othello";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -426,15 +344,6 @@
 			buildConfigurations = (
 				D7B2631B1C9EF0C200C24114 /* Debug */,
 				D7B2631C1C9EF0C200C24114 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D7B2631D1C9EF0C200C24114 /* Build configuration list for PBXNativeTarget "OthelloTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D7B2631E1C9EF0C200C24114 /* Debug */,
-				D7B2631F1C9EF0C200C24114 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
