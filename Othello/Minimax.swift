@@ -7,104 +7,80 @@
 //
 
 import Foundation
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 /**
- Intelligence artificielle s'appuyant sur l'algorithme Minimax pour déterminer le meilleur coup possible.
- - note: Correspond à la difficulté "Moyen"
- */
+Intelligence artificielle s'appuyant sur l'algorithme Minimax pour déterminer le meilleur coup possible.
+- note: Correspond à la difficulté "Moyen"
+*/
 class Minimax: Strategie {
-    
-    /**
-     Permet de choisir le meilleur mouvement parmi les différents plateaux jouables. Chaque mouvement jouable est accompagné de sa valeur provenant de l'algorithme Minimax.
-     - note : L'algorithme Minimax est utilisé avec une profondeur de 2.
-     - parameters:
-        - plateau: Le plateau de base.
-     */
-    override func calculMouvement(_ plateau: Plateau) {
-        let date = Date()
-        
-        let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
-        
-        if mouvementsPossibles.isEmpty {
-            self.pause(date)
-            self.passer()
-        }
-        else {
-            var meilleurMouvement: Coordonnees?
-            var meilleureValeur: Int?
-            
-            for mouvement in mouvementsPossibles {
-                let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
-                
-                let valeur = self.minimax(nouveauPlateau, joueur: BLANC, profondeur: 2)
-                
-                print("valeur : \(valeur)")
-                
-                if meilleurMouvement == nil || valeur > meilleureValeur {
-                    meilleurMouvement = mouvement
-                    meilleureValeur = valeur
-                }
-            }
-            
-            self.pause(date)
-            self.mouvement(meilleurMouvement!)
-            
-            print("meilleure valeur : \(meilleureValeur)")
-        }
-    }
-    
-    
-    /**
-     Implémentation de l'algorithme Minimax consistant à étudier toutes les possibilités et à déterminer le meilleur choix possible, c'est-à-dire le coup minimisant les pertes du joueur
-     - parameters:
-        - plateau: Le plateau de jeu concerné.
-        - joueur: Le joueur concerné.
-        - profondeur: La profondeur de l'algorithme.
-     - returns: La valeur du meilleur coup
-    */
-    func minimax(_ plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
-        let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
-        
-        if profondeur == 0 || mouvementsPossibles.isEmpty {
-            return self.fonctionEvaluation(plateau, joueur: BLANC)
-        }
-        
-        var meilleureValeur = Int(UInt8.min)
-        
-        for mouvement in mouvementsPossibles {
-            let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
-            
-            let indice = self.minimax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1)
-            
-            if indice > meilleureValeur {
-                meilleureValeur = indice
-            }
-        }
-        
-        return meilleureValeur
-    }
+	
+	/**
+	Permet de choisir le meilleur mouvement parmi les différents plateaux jouables. Chaque mouvement jouable est accompagné de sa valeur provenant de l'algorithme Minimax.
+	- note : L'algorithme Minimax est utilisé avec une profondeur de 2.
+	- parameters:
+	- plateau: Le plateau de base.
+	*/
+	override func calculMouvement(plateau: Plateau) {
+		let date = Date()
+		
+		let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
+		
+		guard !mouvementsPossibles.isEmpty else {
+			pause(date)
+			passer()
+			return
+		}
+		
+		var meilleurMouvement: Coordonnees?
+		var meilleureValeur: Int?
+		
+		for mouvement in mouvementsPossibles {
+			let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
+			
+			let valeur = minimax(nouveauPlateau, joueur: BLANC, profondeur: 2)
+			
+			if meilleureValeur != nil && valeur > meilleureValeur! {
+				meilleurMouvement = mouvement
+				meilleureValeur = valeur
+			}
+			
+			if meilleurMouvement == nil {
+				meilleurMouvement = mouvement
+				meilleureValeur = valeur
+			}
+		}
+		
+		pause(date)
+		mouvement(coordonnees: meilleurMouvement!)
+	}
+	
+	/**
+	Implémentation de l'algorithme Minimax consistant à étudier toutes les possibilités et à déterminer le meilleur choix possible, c'est-à-dire le coup minimisant les pertes du joueur
+	- parameters:
+	- plateau: Le plateau de jeu concerné.
+	- joueur: Le joueur concerné.
+	- profondeur: La profondeur de l'algorithme.
+	- returns: La valeur du meilleur coup
+	*/
+	func minimax(_ plateau: Plateau, joueur: Int, profondeur: Int) -> Int {
+		let mouvementsPossibles = plateau.mouvementsPossibles(BLANC)
+		
+		if profondeur == 0 || mouvementsPossibles.isEmpty {
+			return fonctionEvaluation(plateau: plateau, joueur: BLANC)
+		}
+		
+		var meilleureValeur = Int(UInt8.min)
+		
+		for mouvement in mouvementsPossibles {
+			let nouveauPlateau = self.nouveauPlateau(plateau, mouvement: mouvement)
+			
+			let indice = minimax(nouveauPlateau, joueur: -joueur , profondeur: profondeur-1)
+			
+			if indice > meilleureValeur {
+				meilleureValeur = indice
+			}
+		}
+		
+		return meilleureValeur
+	}
 }

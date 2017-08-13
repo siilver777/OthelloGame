@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - NSApplicationDelegate
     
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         gameViewController = GameViewController(nibName: "GameViewController", bundle: nil)
         window.contentView?.addSubview(gameViewController.view)

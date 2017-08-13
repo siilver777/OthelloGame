@@ -32,13 +32,13 @@ class Strategie {
     // MARK: - Méthodes
     
     required init(controller: GameViewController) {
-        self.gameViewController = controller
+        gameViewController = controller
     }
     
     /**
      Méthode à redéfinir à chaque sous-classe afin d'implémenter l'IA.
      */
-    func calculMouvement(_ plateau: Plateau) {
+    func calculMouvement(plateau: Plateau) {
         /* À redéfinir à chaque algorithme */
     }
     
@@ -48,15 +48,15 @@ class Strategie {
      - parameters:
      - mouvement: Le coup à jouer.
      */
-    func mouvement(_ mouvement: Coordonnees) {
-        self.gameViewController.mouvement(mouvement)
+    func mouvement(coordonnees: Coordonnees) {
+        gameViewController.mouvement(coordonnees)
     }
     
     /**
      Permet à l'intelligence artificielle de passer son coup lorsqu'aucun coup n'est disponible.
      */
     func passer() {
-        self.gameViewController.passer()
+        gameViewController.passer()
     }
     
     /**
@@ -99,17 +99,17 @@ class Strategie {
      - joueur: Le joueur pour lequel l'utilité est calculé.
      - returns: L'utilité du plateau.
      */
-    func fonctionEvaluation(_ plateau: Plateau, joueur: Int) -> Int {
+    func fonctionEvaluation(plateau: Plateau, joueur: Int) -> Int {
         var utilite = 0
         
         for i in 1...8 {
             for j in 1...8 {
                 let caseCourante = plateau.etatCase(i, colonne: j)
                 if caseCourante == joueur {
-                    utilite += self.heuristiques[i * 10 + j]
+                    utilite += heuristiques[i * 10 + j]
                 }
                 else if caseCourante == -joueur {
-                    utilite -= self.heuristiques[i * 10 + j]
+                    utilite -= heuristiques[i * 10 + j]
                 }
             }
         }
