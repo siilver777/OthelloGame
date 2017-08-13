@@ -28,10 +28,10 @@ class GameViewController: NSViewController {
         difficultePopUpButton.addItems(withTitles: ["Très facile", "Facile", "Moyen", "Difficile", "Extrême"])
         
         // Difficulté par défaut (facile)
-        self.difficulte = Aleatoire(controller: self)
+        difficulte = Aleatoire(controller: self)
         
         // Lancer une nouvelle partie
-        self.nouvellePartie()
+        nouvellePartie()
     }
     
     @IBAction func caseSelectionnee(_ sender: AnyObject) {
@@ -40,21 +40,21 @@ class GameViewController: NSViewController {
     }
     
     @IBAction func recommencer(_ sender: AnyObject) {
-        self.nouvellePartie()
+        nouvellePartie()
     }
     
     @IBAction func changerDifficulte(_ sender: AnyObject) {
         switch difficultePopUpButton.indexOfSelectedItem {
         case 1:
-            self.difficulte = Heuristique(controller: self)
+            difficulte = Heuristique(controller: self)
         case 2:
-            self.difficulte = Minimax(controller: self)
+            difficulte = Minimax(controller: self)
         case 3:
-            self.difficulte = AlphaBeta(controller: self)
+            difficulte = AlphaBeta(controller: self)
         case 4:
-            self.difficulte = NegaScout(controller: self)
+            difficulte = NegaScout(controller: self)
         default:
-            self.difficulte = Aleatoire(controller: self)
+            difficulte = Aleatoire(controller: self)
         }
         
         self.nouvellePartie()
@@ -66,11 +66,11 @@ class GameViewController: NSViewController {
         
         for i in 0..<8 {
             for j in 0..<8 {
-                let etatCase = self.plateau.etatCase(i+1, colonne: j+1)
-                let cell = self.plateauMatrix.cell(atRow: i, column: j) as! NSButtonCell
+                let etatCase = plateau.etatCase(i+1, colonne: j+1)
+                let cell = plateauMatrix.cell(atRow: i, column: j) as! NSButtonCell
                 
                 // On active la cellule seulement si le mouvement est possible par l'utilisateur
-                if self.joueurActuel == NOIR && self.plateau.isMouvementPossible(self.joueurActuel, ligne: i+1, colonne: j+1) {
+                if joueurActuel == NOIR && plateau.isMouvementPossible(joueurActuel, ligne: i + 1, colonne: j + 1) {
                     cell.isEnabled = true
                     cell.image = NSImage(named: "jouable")
                 }
@@ -107,27 +107,27 @@ class GameViewController: NSViewController {
             queue = OperationQueue()
         }
         
-        if self.plateau != nil {
-            self.plateau.reset()
+        if plateau != nil {
+            plateau.reset()
         }
         else {
-            self.plateau = Plateau()
+            plateau = Plateau()
         }
         
         // On attend le prochain mouvement
-        self.mouvementSuivant()
+        mouvementSuivant()
     }
     
     func mouvement(_ coordonnees: Coordonnees) {
-        self.plateau.mouvement(self.joueurActuel, ligne: coordonnees.ligne, colonne: coordonnees.colonne)
+        plateau.mouvement(joueurActuel, ligne: coordonnees.ligne, colonne: coordonnees.colonne)
         
         // On change de joueur et on attend le prochain mouvement
-        self.changerJoueur()
-        self.mouvementSuivant()
+        changerJoueur()
+        mouvementSuivant()
     }
     
     func changerJoueur() {
-        self.joueurActuel = (self.joueurActuel == BLANC) ? NOIR : BLANC
+        joueurActuel = (joueurActuel == BLANC) ? NOIR : BLANC
     }
     
     func mouvementSuivant() {
@@ -135,47 +135,47 @@ class GameViewController: NSViewController {
         self.afficherPlateau()
         
         // On récupère les mouvements possibles
-        let mouvementsNoir = self.plateau.mouvementsPossibles(NOIR)
-        let mouvementsBlanc = self.plateau.mouvementsPossibles(BLANC)
+        let mouvementsNoir = plateau.mouvementsPossibles(NOIR)
+        let mouvementsBlanc = plateau.mouvementsPossibles(BLANC)
         
         if mouvementsNoir.isEmpty && mouvementsBlanc.isEmpty {
             
             // Fin du jeu, on détermine le gagnant
             if scoreNoirTextField.intValue == scoreBlancTextField.intValue {
                 // Egalité
-                self.messageTextField.stringValue = "Terminé ! C'est une égalité."
+                messageTextField.stringValue = "Terminé ! C'est une égalité."
             }
             else if (scoreNoirTextField.intValue > scoreBlancTextField.intValue) {
                 // Noir gagne
-                self.messageTextField.stringValue = "Terminé ! Victoire des Noirs."
+                messageTextField.stringValue = "Terminé ! Victoire des Noirs."
             }
             else {
                 // Blanc gagne
-                self.messageTextField.stringValue = "Terminé ! Victoire des Blancs."
+                messageTextField.stringValue = "Terminé ! Victoire des Blancs."
             }
         }
         else {
             if joueurActuel == BLANC {
                 // L'IA est en train de jouer
-                self.messageTextField.stringValue = "L'IA est en train de jouer"
+                messageTextField.stringValue = "L'IA est en train de jouer"
                 
-                queue?.addOperation(BlockOperation {
-                    self.difficulte!.calculMouvement(self.plateau)
-                    })
+                queue?.addOperation(BlockOperation { [unowned self] in
+                    self.difficulte!.calculMouvement(plateau: self.plateau)
+				})
             }
             else {
                 // À vous de jouer
-                self.messageTextField.stringValue = "À vous de jouer"
+                messageTextField.stringValue = "À vous de jouer"
                 
                 if mouvementsNoir.isEmpty {
-                    self.passer()
+                    passer()
                 }
             }
         }
     }
     
     func passer() {
-        self.changerJoueur()
-        self.mouvementSuivant()
+        changerJoueur()
+        mouvementSuivant()
     }
 }
