@@ -16,7 +16,7 @@ class NegaScout: Strategie {
 	
 	/**
 	Permet de choisir le meilleur mouvement parmi les différents plateaux jouables. Chaque mouvement jouable est accompagné de sa valeur provenant de l'algorithme NegaScout.
-	- note : L'algorithme NegaScout est utilisé avec une profondeur de 4.
+	- note : L'algorithme NegaScout est utilisé avec une profondeur de w4.
 	- parameters:
 	- plateau: Le plateau de base.
 	*/
